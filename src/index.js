@@ -1,0 +1,1 @@
+import initialRender from './modules/initialrender';
