@@ -100,3 +100,49 @@ body {
     width: 25px;
     cursor: pointer;
 }
+
+
+/* For mobile view or small screen side bar collapse */
+@media screen and (max-width: 600px) {
+    #page-container {
+        grid-template-columns: 70px 1fr;
+    }
+
+    .item-tag, #add-project{
+        font-size: 0px;
+    }
+
+    .side-bar-item, .project-bar-item, #project-list, #project-add-container {
+        padding-left: 0;
+    }
+
+    #project-bar-container>h1 {
+        font-size: 0px;
+    }
+
+    .side-bar-item:hover, .project-bar-item:hover {
+        background-color: rgba(187, 187, 187, 0);
+    }
+
+}
+
+/* On collapse click for side bar */
+#page-container.collapse{
+    grid-template-columns: 70px 1fr;
+}
+
+.item-tag.collapse, #add-project.collapse{
+    font-size: 0px;
+}
+
+.side-bar-item.collapse, .project-bar-item.collapse, #project-list.collapse, #project-add-container.collapse {
+    padding-left: 0;
+}
+
+#project-bar-container.collapse>h1 {
+    font-size: 0px;
+}
+
+.side-bar-item.collapse:hover, .project-bar-item.collapse:hover {
+    background-color: rgba(187, 187, 187, 0);
+}
