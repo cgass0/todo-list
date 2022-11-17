@@ -6,10 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/src/style/style.css">
     <script src="main.js" defer></script>
-    <title>Gusteau's</title>
+    <title>ToDue</title>
 </head>
 <body>
-    <div id="content"></div>
-    
+    <div id="page-container">
+        <div id="header">
+            <div id="logo-container">
+                <img id="logo-img" src="/src/img/logo.png" alt="toDue Logo">
+                <h1 id="logo-tag">toDue</h1>
+            </div>
+        </div>
+
+        <div id="side-bar">
+            <div id="side-bar-container">
+                <img class="icon" id="side-bar-toggle" src="/src/img/menu.png" alt="menu toggle">
+
+                <div id="task-bar-container">
+                    <div class="side-bar-item" id="dashboard-container">
+                        <img class="icon" src="/src/img/dashboard.png" alt="dashboard icon">
+                        <p class="item-tag">Dashboard</p>
+                    </div>
+                    <div class="side-bar-item" id="today-container">
+                        <img class="icon" src="/src/img/today.png" alt="Today icon">
+                        <p class="item-tag">Today</p>
+                    </div>
+                    <div class="side-bar-item" id="week-container">
+                        <img class="icon" src="/src/img/week.png" alt="week icon">
+                        <p class="item-tag">This Week</p>
+                    </div>
+                </div>
+
+                <div id="project-bar-container">
+                    <h1>Projects</h1>
+                    <div id="project-list">
+                        <div class="project-bar-item">
+                            <img class="icon" src="/src/img/project.png" alt="project icon">
+                            <p class="item-tag">Dummy</p>
+                        </div>
+                        <div class="project-bar-item">
+                            <img class="icon" src="/src/img/project.png" alt="project icon">
+                            <p class="item-tag">Dummy</p>
+                        </div> 
+                    </div>
+                    <div class="project-bar-item" id="project-add-container">
+                            <img class="icon" src="/src/img/add-project.png" alt="project icon">
+                            <p class="item-tag" id="add-project">Add Project</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="content"></div>
+    </div>
+    </div>
 </body>
 </html>
