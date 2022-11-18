@@ -105,7 +105,7 @@ body {
 
 
 /* For mobile view or small screen side bar collapse */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
     #page-container {
         grid-template-columns: 70px 1fr;
     }

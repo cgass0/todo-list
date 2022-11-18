@@ -9,7 +9,7 @@
 .form-container {
   border: 3px solid rgba(182, 182, 182, 0.548);
   height: 75%;
-  width: 75%;
+  width: clamp(400px, 75%, 700px);
   display: flex;
   flex-direction: column;
   padding: 50px;
@@ -29,7 +29,7 @@ textarea {
 
 .new-task {
   display: grid;
-  grid-template-columns: minmax(100px, 400px)minmax(120px, 400px) 82px 85px;
+  grid-template-columns: minmax(85px, 400px)minmax(120px, 500px) 82px 85px;
   align-items: center;
   gap: 5px;
   font-size: 10px;
