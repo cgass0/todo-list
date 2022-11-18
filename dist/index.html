@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/style/style.css">
+    <link rel="stylesheet" href="/src/style/index.css">
+    <link rel="stylesheet" href="/src/style/projectForm.css">
     <script src="main.js" defer></script>
     <title>ToDue</title>
 </head>
@@ -49,7 +50,7 @@
                         </div> 
                     </div>
                     <div class="project-bar-item" id="project-add-container">
-                            <img class="icon" src="/src/img/add-project.png" alt="project icon">
+                            <img class="icon" id="add-project-button" src="/src/img/add-project.png" alt="project icon">
                             <p class="item-tag" id="add-project">Add Project</p>
                     </div>
 
@@ -57,7 +58,46 @@
             </div>
         </div>
 
-        <div id="content"></div>
+        <div id="content">
+
+            <div class="form-popup" id="myProjectForm">
+                <form action="/action_page.php" class="form-container">
+                    <h1>Start A New Project</h1>
+                
+                    <label for="name"><b>Project Name</b></label>
+                    <input class="new-project-input" type="text" placeholder="Enter Project Name" name="name" required>
+                
+                    <label for="description"><b>Description</b></label>
+                    <textarea class="new-project-input" type="text" placeholder="Enter Description" name="description"></textarea>
+                
+                    <label for="tasks"><b>Tasks</b></label>
+                    <div id="new-project-tasks-container">
+                        <div class="new-task">
+                            <input class="task-inputs name" type="text" name="task" placeholder="Enter Task*" required>
+                            <textarea class="task-inputs description" name="task description" placeholder="Enter Description"></textarea>
+                            <select class="task-inputs priority">
+                                <option value="" selected disabled hidden>Priority Level</option>
+                                <option value="1">Low</option>
+                                <option value="2">Medium</option>
+                                <option value="3">Hign</option>
+                            </select>
+                            <input class="task-inputs date" type="date" id="datePickerId" required/> <!--datePickerId.max = new Date().toISOString().split("T")[0];-->
+                        </div>
+                    </div>
+
+                    <div class="add-wrap">
+                        <img class="icon" src="/src/img/add-project.png" alt="add button">
+                        <p>Add A New Task</p>
+                    </div>
+
+                    <div class="button-wrap">
+                        <button type="submit" class="btn">Create Project</button>
+                        <button type="button" class="btn cancel" id="close-project-button">Close</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
     </div>
     </div>
 </body>

@@ -1,0 +1,70 @@
+.form-popup {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.form-container {
+  border: 3px solid rgba(182, 182, 182, 0.548);
+  height: 75%;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  gap: 5px;
+}
+
+label {
+  margin-top: 10px;
+}
+input {
+  height: 20px;
+}
+textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.new-task {
+  display: grid;
+  grid-template-columns: minmax(100px, 400px)minmax(120px, 400px) 82px 85px;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+}
+
+.task-inputs {
+  height: 20px;
+  align-items: center;
+  font-size: 10px;
+}
+
+.task-inputs.priority {
+  height: 26px;
+}
+
+.task-inputs.date {
+  height: 22px;
+}
+
+.add-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.button-wrap {
+  align-self: center;
+  margin-top: 20px;
+}
+
+button {
+  width: 150px;
+  height: 50px;
+  border: 10px;
+  cursor: pointer;
+}

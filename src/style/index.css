@@ -92,7 +92,9 @@ body {
 }
 
 #content {
-    grid-area: 2/2/3/3
+    grid-area: 2/2/3/3;
+    display:flex;
+    justify-content: center;
 }
 
 .icon {
@@ -146,3 +148,4 @@ body {
 .side-bar-item.collapse:hover, .project-bar-item.collapse:hover {
     background-color: rgba(187, 187, 187, 0);
 }
+

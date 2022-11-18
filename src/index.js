@@ -1,14 +1,16 @@
 import collapseMenu from './modules/collapse-menu';
 import createProject from './modules/project-constructor';
-import addNewProject from './modules/add-new-project.js';
+import {openProjectForm, closeProjectForm} from './modules/project-form.js';
 
 // Side Bar Menu Collapse Function
 const collapseButton = document.getElementById('side-bar-toggle');
 collapseButton.addEventListener('click',collapseMenu);
 
-// Display Add Project screen
+// Toggle Add Project screen
 const addProjectButton = document.getElementById('add-project-button');
-addProjectButton.addEventListener('click',addNewProject);
+addProjectButton.addEventListener('click',openProjectForm);
+const closeProjectButton = document.getElementById('close-project-button');
+closeProjectButton.addEventListener('click',closeProjectForm);
 
 // Projects Array
 let myProjects = [];
