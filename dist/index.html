@@ -60,43 +60,6 @@
 
         <div id="content">
 
-            <div class="form-popup" id="myProjectForm">
-                <form action="/action_page.php" class="form-container">
-                    <h1>Start A New Project</h1>
-                
-                    <label for="name"><b>Project Name</b></label>
-                    <input class="new-project-input" type="text" placeholder="Enter Project Name" name="name" required>
-                
-                    <label for="description"><b>Description</b></label>
-                    <textarea class="new-project-input" type="text" placeholder="Enter Description" name="description"></textarea>
-                
-                    <label for="tasks"><b>Tasks</b></label>
-                    <div id="new-project-tasks-container">
-                        <div class="new-task">
-                            <input class="task-inputs name" type="text" name="task" placeholder="Enter Task*" required>
-                            <textarea class="task-inputs description" name="task description" placeholder="Enter Description"></textarea>
-                            <select class="task-inputs priority">
-                                <option value="" selected disabled hidden>Priority Level</option>
-                                <option value="1">Low</option>
-                                <option value="2">Medium</option>
-                                <option value="3">Hign</option>
-                            </select>
-                            <input class="task-inputs date" type="date" id="datePickerId" required/> <!--datePickerId.max = new Date().toISOString().split("T")[0];-->
-                        </div>
-                    </div>
-
-                    <div class="add-wrap">
-                        <img class="icon" src="/src/img/add-project.png" alt="add button">
-                        <p>Add A New Task</p>
-                    </div>
-
-                    <div class="button-wrap">
-                        <button type="submit" class="btn">Create Project</button>
-                        <button type="button" class="btn cancel" id="close-project-button">Close</button>
-                    </div>
-                </form>
-            </div>
-
         </div>
     </div>
     </div>
