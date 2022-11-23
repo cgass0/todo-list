@@ -11,6 +11,7 @@ const addProjectButton = document.getElementById('add-project-button');
 addProjectButton.addEventListener('click', function() {openProjectForm(true)});
 
 
+
 // Projects Array
 let myProjects = [];
 

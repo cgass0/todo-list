@@ -4,58 +4,72 @@ const content = document.getElementById('content');
 
 export default function openProjectForm(isNewProject) {
 
-        const newForm = document.createElement('div');
-        newForm.classList.add('form-popup');
-        newForm.setAttribute('id', 'myProjectForm');
-        content.append(newForm);
-        newForm.style.display = "flex";
+    const newForm = document.createElement('div');
+    newForm.classList.add('form-popup');
+    newForm.setAttribute('id', 'myProjectForm');
+    content.append(newForm);
 
-        const formContainer = document.createElement('div');
-        formContainer.classList.add('form-container');
-        newForm.append(formContainer);
+    const formTitle = document.createElement('h1');
+    if (isNewProject == true){
+        formTitle.textContent = "Start A New Project";
+    } else {
+        formTitle.textContent = "Edit Project";
+    }
 
-        const formTitle = document.createElement('h1');
-        
-        if (isNewProject == true){
-            formTitle.textContent = "Start A New Project";
-        } else {
-            formTitle.textContent = "Edit Project";
-        }
-        formContainer.append(formTitle);
+    newForm.append(formTitle);
+    const formContainer = document.createElement('div');
+    formContainer.classList.add('form-container');
+    newForm.append(formContainer);
 
-        const nameLabel = document.createElement('label');
-        nameLabel.setAttribute('for', 'name');
-        nameLabel.textContent = "Project Name";
-        formContainer.append(nameLabel);
+    const nameLabel = document.createElement('label');
+    nameLabel.setAttribute('for', 'name');
+    nameLabel.textContent = "Project Name";
+    formContainer.append(nameLabel);
 
-        const nameInput = document.createElement('input');
-        nameInput.classList.add('new-project-input');
-        nameInput.setAttribute('type', 'text');
-        nameInput.setAttribute('placeholder', 'Enter Project Name');
-        nameInput.setAttribute('name', 'name');
-        nameInput.setAttribute('required', '');
-        formContainer.append(nameInput);
+    const nameInput = document.createElement('input');
+    nameInput.classList.add('new-project-input');
+    nameInput.setAttribute('type', 'text');
+    nameInput.setAttribute('placeholder', 'Enter Project Name');
+    nameInput.setAttribute('name', 'name');
+    nameInput.setAttribute('required', '');
+    formContainer.append(nameInput);
 
-        const descriptionLabel = document.createElement('label');
-        descriptionLabel.setAttribute('for', 'description');
-        descriptionLabel.textContent = "Description";
-        formContainer.append(descriptionLabel);
+    const descriptionLabel = document.createElement('label');
+    descriptionLabel.setAttribute('for', 'description');
+    descriptionLabel.textContent = "Description";
+    formContainer.append(descriptionLabel);
 
-        const descriptionArea = document.createElement('textarea');
-        descriptionArea.classList.add('new-project-input');
-        descriptionArea.setAttribute('type', 'text');
-        descriptionArea.setAttribute('placeholder', 'Enter Project Description');
-        descriptionArea.setAttribute('name', 'description');
-        formContainer.append(descriptionArea);
+    const descriptionArea = document.createElement('textarea');
+    descriptionArea.classList.add('new-project-input');
+    descriptionArea.setAttribute('type', 'text');
+    descriptionArea.setAttribute('placeholder', 'Enter Project Description');
+    descriptionArea.setAttribute('name', 'description');
+    formContainer.append(descriptionArea);
 
-        const tasksLabel = document.createElement('label');
-        tasksLabel.setAttribute('for', 'tasks');
-        tasksLabel.textContent = "Tasks";
-        formContainer.append(tasksLabel);
+    const tasksLabel = document.createElement('label');
+    tasksLabel.setAttribute('for', 'tasks');
+    tasksLabel.textContent = "Tasks";
+    formContainer.append(tasksLabel);
 
-        const taskContainer = document.createElement('div');
-        taskContainer.classList.add('new-project-tasks-container');
-        formContainer.append(taskContainer);
+    const taskContainer = document.createElement('div');
+    taskContainer.classList.add('new-project-tasks-container');
+    formContainer.append(taskContainer);
+
+    const taskAddWrap = document.createElement('div');
+    taskAddWrap.classList.add('add-wrap');
+    formContainer.append(taskAddWrap);
+
+    const addTaskImg = document.createElement('img');
+    addTaskImg.setAttribute('id', 'add-task-new-project');
+    addTaskImg.classList.add('icon');
+    addTaskImg.setAttribute('src', '/src/img/add-project.png');
+    addTaskImg.setAttribute('alt', 'add button');
+    taskAddWrap.append(addTaskImg);
+
+    // function for adding new tasks
+    addTaskImg.addEventListener('click', addTask); 
+    
+    function addTask() {
 
         const newTask = document.createElement('div');
         newTask.classList.add('new-task');
@@ -107,41 +121,37 @@ export default function openProjectForm(isNewProject) {
         taskDateInput.setAttribute('type', 'date');
         taskDateInput.setAttribute('required', '');
         newTask.append(taskDateInput);
+    }
 
-        const taskAddWrap = document.createElement('div');
-        taskAddWrap.classList.add('add-wrap');
-        formContainer.append(taskAddWrap);
+    addTask();
 
-        const addTaskImg = document.createElement('img');
-        addTaskImg.setAttribute('id', 'add-task-new-project');
-        addTaskImg.classList.add('icon');
-        addTaskImg.setAttribute('src', '/src/img/add-project.png');
-        addTaskImg.setAttribute('alt', 'add button');
-        taskAddWrap.append(addTaskImg);
+    const addTaskTitle = document.createElement('p');
+    addTaskTitle.textContent = "Add A New Task";
+    taskAddWrap.append(addTaskTitle);
 
-        const addTaskTitle = document.createElement('p');
-        addTaskTitle.textContent = "Add A New Task";
-        taskAddWrap.append(addTaskTitle);
+    const buttonWrap = document.createElement('div');
+    buttonWrap .classList.add('button-wrap');
+    formContainer.append(buttonWrap);
 
-        const buttonWrap = document.createElement('div');
-        buttonWrap .classList.add('button-wrap');
-        formContainer.append(buttonWrap);
+    const submitProjectButton = document.createElement('button');
+    submitProjectButton.classList.add('btn');
+    submitProjectButton.setAttribute('type', 'submit');
+    if (isNewProject == true){
+        submitProjectButton.textContent = "Create Project";
+    } else {
+        submitProjectButton.textContent = "Update Project";
+    }
+    buttonWrap.append(submitProjectButton);
 
-        const submitProjectButton = document.createElement('button');
-        submitProjectButton.classList.add('btn');
-        submitProjectButton.setAttribute('type', 'submit');
-        if (isNewProject == true){
-            submitProjectButton.textContent = "Create Project";
-        } else {
-            submitProjectButton.textContent = "Update Project";
-        }
-        buttonWrap.append(submitProjectButton);
+    const closeFormButton = document.createElement('button');
+    closeFormButton.classList.add('btn', 'cancel');
+    closeFormButton.setAttribute('id', 'close-project-button');
+    closeFormButton.textContent = "Close";
+    buttonWrap.append(closeFormButton);
+    // function for closing the form with "Close" button
+    closeFormButton.addEventListener('click',function() {content.innerHTML = ""});
 
-        const closeFormButton = document.createElement('button');
-        closeFormButton.classList.add('btn', 'cancel');
-        closeFormButton.setAttribute('id', 'close-project-button');
-        closeFormButton.textContent = "Close";
-        buttonWrap.append(closeFormButton);
-        closeFormButton.addEventListener('click',function() {content.innerHTML = ""});
+    
+
 }
 
