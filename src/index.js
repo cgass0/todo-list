@@ -1,6 +1,7 @@
 import collapseMenu from './modules/collapse-menu';
 import createProject from './modules/project-constructor';
 import openProjectForm from './modules/project-form.js';
+import renderSideBarProject from './modules/side-bar-project-add';
 
 // Side Bar Menu Collapse Function
 const collapseButton = document.getElementById('side-bar-toggle');
@@ -8,7 +9,10 @@ collapseButton.addEventListener('click',collapseMenu);
 
 // Toggle Add Project screen
 const addProjectButton = document.getElementById('add-project-button');
-addProjectButton.addEventListener('click', function() {openProjectForm(true)});
+addProjectButton.addEventListener('click', function() {
+    openProjectForm(true);
+    addProjectButton.setAttribute("disabled", "disabled");
+});
 
 // Projects Array
 let myProjects = [];
@@ -38,7 +42,8 @@ function projectDetails () {
     });
 
     pushProject(projectName.value, projectDescription.value, projectStatus, id, taskList);
-    console.log(myProjects);
+    
+    renderSideBarProject(projectName.value);
 }
 
 // submit project button to get inputs and call pushProject

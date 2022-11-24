@@ -4,7 +4,7 @@ const content = document.getElementById('content');
 
 export default function openProjectForm(isNewProject) {
 
-    const newForm = document.createElement('div');
+    const newForm = document.createElement('form');
     newForm.classList.add('form-popup');
     newForm.setAttribute('id', 'myProjectForm');
     content.append(newForm);
@@ -17,7 +17,7 @@ export default function openProjectForm(isNewProject) {
     }
 
     newForm.append(formTitle);
-    const formContainer = document.createElement('div');
+    const formContainer = document.createElement('form');
     formContainer.classList.add('form-container');
     newForm.append(formContainer);
 
@@ -31,6 +31,7 @@ export default function openProjectForm(isNewProject) {
     nameInput.setAttribute('type', 'text');
     nameInput.setAttribute('placeholder', 'Enter Project Name');
     nameInput.setAttribute('name', 'name');
+    nameInput.setAttribute('max-length', '15');
     nameInput.setAttribute('required', '');
     formContainer.append(nameInput);
 
