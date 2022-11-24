@@ -75,22 +75,30 @@ export default function openProjectForm(isNewProject) {
         newTask.classList.add('new-task');
         taskContainer.append(newTask);
 
+        const statusBox = document.createElement('input');
+        statusBox.classList.add('task-inputs', 'status');
+        statusBox.type = "checkbox";
+        statusBox.setAttribute('name', 'status');
+        statusBox.value = statusBox.checked;
+        newTask.append(statusBox);
+
         const taskNameInput = document.createElement('input');
         taskNameInput.classList.add('task-inputs', 'name');
         taskNameInput.setAttribute('type', 'text');
         taskNameInput.setAttribute('placeholder', 'Enter Task*');
-        taskNameInput.setAttribute('name', 'task');
+        taskNameInput.setAttribute('name', 'taskName');
         taskNameInput.setAttribute('required', '');
         newTask.append(taskNameInput);
 
         const taskDescriptionInput = document.createElement('textarea');
         taskDescriptionInput.classList.add('task-inputs', 'description');
         taskDescriptionInput.setAttribute('placeholder', 'Enter Description');
-        taskDescriptionInput.setAttribute('name', 'task description');
+        taskDescriptionInput.setAttribute('name', 'taskDescription');
         newTask.append(taskDescriptionInput);
 
         const taskPrioritySelector = document.createElement('select');
         taskPrioritySelector.classList.add('task-inputs', 'priority');
+        taskPrioritySelector.setAttribute('name', 'priority');
         newTask.append(taskPrioritySelector);
 
         const priorityOption0 = document.createElement('option');
@@ -119,6 +127,7 @@ export default function openProjectForm(isNewProject) {
         const taskDateInput = document.createElement('input');
         taskDateInput.classList.add('task-inputs', 'date');
         taskDateInput.setAttribute('type', 'date');
+        taskDateInput.setAttribute('name', 'dueDate');
         taskDateInput.setAttribute('required', '');
         newTask.append(taskDateInput);
     }
@@ -136,6 +145,7 @@ export default function openProjectForm(isNewProject) {
     const submitProjectButton = document.createElement('button');
     submitProjectButton.classList.add('btn');
     submitProjectButton.setAttribute('type', 'submit');
+    submitProjectButton.setAttribute('id', 'submit-project-button');
     if (isNewProject == true){
         submitProjectButton.textContent = "Create Project";
     } else {
@@ -150,8 +160,6 @@ export default function openProjectForm(isNewProject) {
     buttonWrap.append(closeFormButton);
     // function for closing the form with "Close" button
     closeFormButton.addEventListener('click',function() {content.innerHTML = ""});
-
-    
 
 }
 

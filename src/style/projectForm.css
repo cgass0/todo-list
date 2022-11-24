@@ -33,7 +33,7 @@ textarea.new-project-input {
 
 .new-task {
   display: grid;
-  grid-template-columns: minmax(85px, 400px)minmax(120px, 500px) 82px 85px;
+  grid-template-columns: 20px minmax(85px, 400px)minmax(120px, 500px) 82px 85px;
   align-items: center;
   gap: 5px;
   font-size: 10px;
@@ -44,6 +44,11 @@ textarea.new-project-input {
   height: 20px;
   align-items: center;
   font-size: 10px;
+}
+
+.task-inputs.status {
+  height: 20px;
+  width: 15px;
 }
 
 .task-inputs.priority {
