@@ -4,7 +4,7 @@ const content = document.getElementById('content');
 
 export default function openProjectForm(isNewProject) {
 
-    const newForm = document.createElement('form');
+    const newForm = document.createElement('div');
     newForm.classList.add('form-popup');
     newForm.setAttribute('id', 'myProjectForm');
     content.append(newForm);
@@ -19,7 +19,7 @@ export default function openProjectForm(isNewProject) {
     newForm.append(formTitle);
     const formContainer = document.createElement('form');
     formContainer.classList.add('form-container');
-    newForm.append(formContainer);
+    newForm.appendChild(formContainer);
 
     const nameLabel = document.createElement('label');
     nameLabel.setAttribute('for', 'name');
@@ -29,9 +29,10 @@ export default function openProjectForm(isNewProject) {
     const nameInput = document.createElement('input');
     nameInput.classList.add('new-project-input');
     nameInput.setAttribute('type', 'text');
-    nameInput.setAttribute('placeholder', 'Enter Project Name');
+    nameInput.setAttribute('placeholder', 'Enter Project Name: Max 15 char');
     nameInput.setAttribute('name', 'name');
     nameInput.setAttribute('max-length', '15');
+    nameInput.setAttribute('pattern', '.{0,15}');
     nameInput.setAttribute('required', '');
     formContainer.append(nameInput);
 
@@ -145,7 +146,7 @@ export default function openProjectForm(isNewProject) {
 
     const submitProjectButton = document.createElement('button');
     submitProjectButton.classList.add('btn');
-    submitProjectButton.setAttribute('type', 'submit');
+    submitProjectButton.setAttribute('type', 'button');
     submitProjectButton.setAttribute('id', 'submit-project-button');
     if (isNewProject == true){
         submitProjectButton.textContent = "Create Project";

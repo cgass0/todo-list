@@ -1,7 +1,7 @@
 import collapseMenu from './modules/collapse-menu';
 import createProject from './modules/project-constructor';
 import openProjectForm from './modules/project-form.js';
-import renderSideBarProject from './modules/side-bar-project-add';
+import renderSideBarProject from './modules/side-bar-project-add.js';
 
 // Side Bar Menu Collapse Function
 const collapseButton = document.getElementById('side-bar-toggle');
@@ -21,6 +21,7 @@ let myProjects = [];
 function pushProject(Name, Description, Status, Id, Tasks) {
     myProjects.push(createProject(Name, Description, Status, Id, Tasks));
 }
+
 
 function projectDetails () {
     let projectName = document.getElementsByClassName('new-project-input')[0];
@@ -42,25 +43,31 @@ function projectDetails () {
     });
 
     pushProject(projectName.value, projectDescription.value, projectStatus, id, taskList);
-    
+    console.log(myProjects);
     renderSideBarProject(projectName.value);
 }
 
-// submit project button to get inputs and call pushProject
-document.addEventListener('click',function(e){
+// submit project button to get inputs and call pushProject on validation
+document.addEventListener('click',function(e) {
     if(e.target && e.target.id == 'submit-project-button'){
-        projectDetails();
-        document.getElementById('content').innerHTML = "";
+
+        let breaker;
+        document.getElementsByClassName('new-project-input')[0].reportValidity() == false ? breaker = false : ""; 
+
+        document.querySelectorAll(".name").forEach(task => {
+            task.reportValidity() == false ? breaker = false : "";
+        }); 
+
+        document.querySelectorAll(".date").forEach(task => {
+            task.reportValidity() == false ? breaker = false : "";
+        });
+        
+        if(breaker == false) {
+            return
+        } else {
+            projectDetails();
+            document.getElementById('content').innerHTML = "";
+        }
     }
+
 });
-
-
-
-
-
-/*
-pushProject("test", "2", 4, true, "fart");
-pushProject(addProject("test2", "2", 4, true, "fart"));
-console.log(myProjects);
-console.log(myProjects[0]);
-*/
