@@ -2,7 +2,9 @@
 
 const content = document.getElementById('content');
 
-export default function openProjectForm(isNewProject) {
+export default function openProjectForm(isNewProject, numberOfTasks) {
+
+    content.innerHTML = "";
 
     const newForm = document.createElement('div');
     newForm.classList.add('form-popup');
@@ -133,9 +135,11 @@ export default function openProjectForm(isNewProject) {
         taskDateInput.setAttribute('required', '');
         newTask.append(taskDateInput);
     }
-
-    addTask();
-
+    // Add tasks inputs based on the number of tasks needed
+    for (let i = 1; i <= numberOfTasks; i++) {
+        addTask();
+    }
+    
     const addTaskTitle = document.createElement('p');
     addTaskTitle.textContent = "Add A New Task";
     taskAddWrap.append(addTaskTitle);
@@ -147,11 +151,12 @@ export default function openProjectForm(isNewProject) {
     const submitProjectButton = document.createElement('button');
     submitProjectButton.classList.add('btn');
     submitProjectButton.setAttribute('type', 'button');
-    submitProjectButton.setAttribute('id', 'submit-project-button');
     if (isNewProject == true){
         submitProjectButton.textContent = "Create Project";
+        submitProjectButton.setAttribute('id', 'submit-project-button');
     } else {
         submitProjectButton.textContent = "Update Project";
+        submitProjectButton.setAttribute('id', 'update-project-button');
     }
     buttonWrap.append(submitProjectButton);
 

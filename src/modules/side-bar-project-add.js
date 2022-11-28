@@ -9,7 +9,7 @@ export default function renderSideBarProject(projectName) {
     projectList.append(newProjectLink);
 
     const img = document.createElement('img');
-    img.classList.add('icon');
+    img.classList.add('icon', 'project-icon');
     img.setAttribute("src", "/src/img/project.png")
     img.setAttribute('alt', 'project icon');
     newProjectLink.append(img);
